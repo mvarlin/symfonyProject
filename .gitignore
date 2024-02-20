@@ -1,4 +1,18 @@
+/.gitignore 
+
+###> symfony/config folder ###
+/config/
+###< symfony/config folder ###
+
+###> symfony/migrations folder ###
 /migrations/
+###< symfony/migrations folder ###
+
+###> symfony/composer file ###
+/composer.json
+/composer.lock
+/symfony.lock
+###< symfony/composer file ###
 
 ###> symfony/framework-bundle ###
 /.env.local
