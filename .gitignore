@@ -38,3 +38,7 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+###> src < ###
+###> templates < ###
+src/templates/base.html.twig
