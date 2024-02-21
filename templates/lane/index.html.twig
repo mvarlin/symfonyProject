@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title %}lane index{% endblock %}
+ 
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Symfony lane Manager</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-primary" href="{{ path('app_lane_index') }}"> 
+                    Create New lane 
+                </a>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Lane</th>
+                        <th>Description</th>
+                        <th width="240px">Action</th>
+                    </tr>
+                    {% for lane in lanes %}
+                    <tr>
+                        <td>{{ lane.lanename }}</td>
+                        <td>{{ lane.lanedescription }}</td>
+                        {# <td>{{ lane.createdAt ? lane.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ lane.updatedAt ? lane.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                        <td>
+                            <form method="post" action="{{ path('app_lane_delete', {'id': lane.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                <a
+                                    class="btn btn-outline-info"
+                                    href="{{ path('app_lane_show', {'id': lane.id}) }}">
+                                    Show
+                                </a>
+                                <a
+                                    class="btn btn-outline-success"
+                                    href="{{ path('app_lane_edit', {'id': lane.id}) }}">
+                                    Edit
+                                </a>
+ 
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ lane.id) }}">
+                                <button class="btn btn-outline-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+ 
+{% endblock %}
