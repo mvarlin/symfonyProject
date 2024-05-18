@@ -75,7 +75,7 @@ class LaneController extends AbstractController
             $entityManager->remove($lane);
             $entityManager->flush();
         }
-        #test macbook
+        #test macbookk
         return $this->redirectToRoute('app_lane_index', [], Response::HTTP_SEE_OTHER);
     }
 }
