@@ -58,7 +58,6 @@ class LaneController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-
             return $this->redirectToRoute('app_lane_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -75,7 +74,6 @@ class LaneController extends AbstractController
             $entityManager->remove($lane);
             $entityManager->flush();
         }
-        #test macbookkkkkkkkkks
         return $this->redirectToRoute('app_lane_index', [], Response::HTTP_SEE_OTHER);
     }
 }
